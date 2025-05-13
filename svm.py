@@ -10,6 +10,7 @@ class SVMClassifier:
         self.classifier = OneVsOneClassifier(svm.LinearSVC(class_weight='balanced', dual=False))
     
     def extract_ast(self, code):
+        '''Extract AST features from a code fragment'''
         try:
             tree = ast.parse(code)
             return[len(list(ast.walk(tree)))]
@@ -17,6 +18,7 @@ class SVMClassifier:
             return [0]
 
     def features(self, fragments, fit=False):
+        '''Extracts features from provided fragment using TF-IDF and AST'''
         if fit:
             tfidf_matrix = self.tfidf.fit_transform(fragments).toarray()
         else:
@@ -28,9 +30,11 @@ class SVMClassifier:
         return combined
 
     def fit(self, fragments, authors):
+        '''Fits classifier with the provided fragments'''
         features = self.features(fragments, fit=True)
         self.classifier.fit(features, authors)
     
     def predict(self, fragments):
+        '''Predicts the authors of the fragments'''
         features = self.features(fragments, fit=False)
         return self.classifier.predict(features)

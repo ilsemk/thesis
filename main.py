@@ -1,14 +1,12 @@
-import os
 import pandas as pd
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 from svm import SVMClassifier
 
 def read_data(dataset):
+    '''Reads CSV file and extracts the fragments and corresponding authors'''
     print("Read dataset...")
 
-    # fname = "data_thesis.csv"
     inputdf = pd.read_csv(dataset, sep=",", encoding="utf-8", header=0)
 
     fragments = inputdf['fragment'].to_list()
@@ -20,6 +18,7 @@ def read_data(dataset):
     return fragments, authors
 
 def evaluate(true_labels, predicted_labels, class_labels=None):
+    '''Evaluates the performance of the classification'''
     print("Evaluating...")
     confusion_matrix = metrics.confusion_matrix(y_true=true_labels, y_pred=predicted_labels)
     print("Final evaluation:")
@@ -39,10 +38,6 @@ def evaluate(true_labels, predicted_labels, class_labels=None):
 
 def main():
     fragments, authors = read_data("data_thesis.csv")
-    
-    # label_encoder = LabelEncoder()
-    # labels = label_encoder.fit_transform(authors)
-    # label_names = label_encoder.classes_
 
     X_train, X_test, y_train, y_test = train_test_split(fragments, authors, test_size=0.2, random_state=42)
 
@@ -52,8 +47,6 @@ def main():
     y_pred = cls.predict(X_test)
 
     evaluate(y_test, y_pred)
-    # # # print(y_pred)
-    # print(X_train)
 
     cls.extract_ast(fragments[0])
 
