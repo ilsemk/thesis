@@ -1,12 +1,13 @@
 import ast
 import numpy as np 
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.svm import SVC
+from sklearn import svm
+from sklearn.multiclass import OneVsOneClassifier
 
 class SVMClassifier:
     def __init__(self):
         self.tfidf = TfidfVectorizer()
-        self.classifier = SVC(kernel='linear')
+        self.classifier = OneVsOneClassifier(svm.LinearSVC(class_weight='balanced', dual=False))
     
     def extract_ast(self, code):
         try:

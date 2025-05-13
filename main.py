@@ -28,13 +28,13 @@ def evaluate(true_labels, predicted_labels, class_labels=None):
     accuracy = metrics.accuracy_score(true_labels, predicted_labels)
     print(f"Accuracy: {accuracy}")
 
-    precision = metrics.precision_score(true_labels, predicted_labels, average=None)
+    precision = metrics.precision_score(true_labels, predicted_labels, average='macro', zero_division=0.0)
     print(f"Precision score: {precision}")
 
-    recall = metrics.recall_score(true_labels, predicted_labels, average=None)
+    recall = metrics.recall_score(true_labels, predicted_labels, average='macro', zero_division=0.0)
     print(f"Recall score: {recall}")
 
-    f1_score = metrics.f1_score(true_labels, predicted_labels, average=None)
+    f1_score = metrics.f1_score(true_labels, predicted_labels, average='macro')
     print(f"F1-score: {f1_score}")
 
 def main():
@@ -51,8 +51,11 @@ def main():
 
     y_pred = cls.predict(X_test)
 
-    # evaluate(y_test, y_pred)
-    print(y_pred)
+    evaluate(y_test, y_pred)
+    # # # print(y_pred)
+    # print(X_train)
+
+    cls.extract_ast(fragments[0])
 
 if __name__ == "__main__":
     main()
