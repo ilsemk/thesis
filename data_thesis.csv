@@ -1,4 +1,4 @@
-fragment,author_label,year,day,author_name
+fragment,author_label,day
 "for line in lines:
     l,r = line.split()
     l,r = int(l),int(r)
@@ -15,7 +15,7 @@ print(p1)
 p2 = 0
 for l in LEFT:
     p2 += l * RC.get(l,0)
-print(p2)",author_1,2024,1,jonathanpaulson
+print(p2)",author_1,1
 "def is_good(xs):
     inc_or_dec = (xs==sorted(xs) or xs==sorted(xs,reverse=True))
     ok = True
@@ -23,7 +23,7 @@ print(p2)",author_1,2024,1,jonathanpaulson
         diff = abs(xs[i]-xs[i+1])
         if not 1<=diff<=3:
             ok = False
-    return inc_or_dec and ok",author_1,2024,2,
+    return inc_or_dec and ok",author_1,2
 "for i in range(len(D)):
     if D[i:].startswith('do()'):
         enabled = True
@@ -34,7 +34,7 @@ print(p2)",author_1,2024,1,jonathanpaulson
         x,y = int(instr.group(1)), int(instr.group(2))
         p1 += x*y
         if enabled:
-            p2 += x*y",author_1,2024,3,
+            p2 += x*y",author_1,3
 "for r in range(R):
     for c in range(C):
         if c+3<C and G[r][c]=='X' and G[r][c+1]=='M' and G[r][c+2]=='A' and G[r][c+3]=='S':
@@ -48,7 +48,7 @@ print(p2)",author_1,2024,1,jonathanpaulson
         if r+3<R and G[r][c]=='S' and G[r+1][c]=='A' and G[r+2][c]=='M' and G[r+3][c]=='X':
             p1 += 1
         if r+3<R and c+3<C and G[r][c]=='S' and G[r+1][c+1]=='A' and G[r+2][c+2]=='M' and G[r+3][c+3]=='X':
-            p1 += 1",author_1,2024,4,
+            p1 += 1",author_1,4
 "for line in edges.split('\n'):
     x,y = line.split('|')
     x,y = int(x), int(y)
@@ -62,7 +62,7 @@ for query in queries.split('\n'):
     for i,x in enumerate(vs):
         for j,y in enumerate(vs):
             if i<j and y in E[x]:
-                ok = False",author_1,2024,5,
+                ok = False",author_1,5
 "for o_r in range(R):
     for o_c in range(C):
         r,c = sr,sc
@@ -81,7 +81,7 @@ for query in queries.split('\n'):
             if not (0<=rr<R and 0<=cc<C):
                 if G[o_r][o_c]=='#':
                     p1 = len(SEEN_RC)
-                break",author_1,2024,6,
+                break",author_1,6
 "def is_valid(target, ns, p2):
     if len(ns) == 1:
         return ns[0]==target
@@ -91,7 +91,8 @@ for query in queries.split('\n'):
         return True
     if p2 and is_valid(target, [int(str(ns[0])+str(ns[1]))] + ns[2:], p2):
         return True
-    return False",author_1,2024,7,
+    return False
+",author_1,7
 "D = open(infile).read().strip()
 G = D.split('\n')
 R = len(G)
@@ -100,7 +101,7 @@ P = defaultdict(list)
 for r in range(R):
     for c in range(C):
         if G[r][c] != '.':
-            P[G[r][c]].append((r,c))",author_1,2024,8,
+            P[G[r][c]].append((r,c))",author_1,8
 "def solve(part2):
     A = deque([])
     SPACE = deque([])
@@ -121,7 +122,7 @@ for r in range(R):
             SPACE.append((pos, int(c)))
             for i in range(int(c)):
                 FINAL.append(None)
-                pos += 1",author_1,2024,9,
+                pos += 1",author_1,9
 "def ways1(sr,sc):
     """"""How many different 0s can I reach going down from here?""""""
     Q = deque([(sr,sc)])
@@ -139,15 +140,16 @@ for r in range(R):
             cc = c+dc
             if 0<=rr<R and 0<=cc<C and G[rr][cc] == G[r][c]-1:
                 Q.append((rr,cc))
-    return ans",author_1,2024,10,
+    return ans",author_1,10
 "with open(""input"") as f:
     ls = f.read().strip().split(""\n"")
 
-l1, l2 = zip(*[map(int, x.split()) for x in ls])",author_2,2024,1,fuglede
+l1, l2 = zip(*[map(int, x.split()) for x in ls])",author_2,1
 "def safe1(levels):
     return all(1 <= abs(n1 - n2) <= 3 for n1, n2 in zip(levels, levels[1:])) and (
         levels == sorted(levels) or levels == sorted(levels)[::-1]
-    )",author_2,2024,2,
+    )
+",author_2,2
 "def solve(part1):
     res = 0
     do = True
@@ -159,7 +161,7 @@ l1, l2 = zip(*[map(int, x.split()) for x in ls])",author_2,2024,1,fuglede
         else:
             if do or part1:
                 res += int(j) * int(k)
-    return res",author_2,2024,3,
+    return res",author_2,3
 "boardz = defaultdict(str)
 boardz |= {i + 1j * j: x for i, l in enumerate(ls) for j, x in enumerate(l)}
 octdir = {i + 1j * j for (i, j) in set(product((-1, 0, 1), (-1, 0, 1))) - {(0, 0)}}
@@ -171,7 +173,7 @@ print(
         for z in list(boardz.keys())
         for dz in octdir
     )
-)",author_2,2024,4,
+)",author_2,4
 "unsorted_updates = {
     update
     for update in updates
@@ -186,7 +188,7 @@ print(
     sum(
         update[len(update) // 2] for update in updates if update not in unsorted_updates
     )
-)",author_2,2024,5,
+)",author_2,5
 "# Part 1
 start = next(w for w, x in board.items() if x == ""^"")
 walls = {w for w, x in board.items() if x == ""#""}
@@ -200,7 +202,7 @@ while z in board:
         continue
     z += dz
 
-print(len(seen))",author_2,2024,6,
+print(len(seen))",author_2,6
 "def solve(part2):
     worked = 0
     all_ops = [mul, add]
@@ -216,7 +218,7 @@ print(len(seen))",author_2,2024,6,
                 worked += res
                 break
     return worked
-",author_2,2024,7,
+",author_2,7
 "from collections import defaultdict
 from itertools import permutations
 
@@ -233,7 +235,7 @@ for z, x in board.items():
 antinodes = {
     2 * z2 - z1 for zs in antennas.values() for z1, z2 in permutations(zs, 2)
 } & board.keys()
-print(len(antinodes))",author_2,2024,8,
+print(len(antinodes))",author_2,8
 "with open(""input"") as f:
     ns = list(map(int, f.read().strip()))
 
@@ -249,7 +251,8 @@ while head < len(disk):
     elif num := disk.pop():
         disk[head] = num
 
-print(sum(i * n for i, n in enumerate(disk)))",author_2,2024,9,
+print(sum(i * n for i, n in enumerate(disk)))
+",author_2,9
 "import networkx as nx
 
 with open(""input"") as f:
@@ -262,7 +265,7 @@ G = nx.DiGraph(
     for z, h in board.items()
     for dz in (1, -1, 1j, -1j)
     if board.get(z + dz) == h + 1
-)",author_2,2024,10,
+)",author_2,10
 "from fileinput import input
 import os
 
@@ -275,7 +278,7 @@ if int(os.environ.get('part', 1)) <= 1: # part 1
     s = sum([abs(a-b) for a,b in zip(sorted(l1), sorted(l2))])
 else: # part 2
     s = sum(a * l2.count(a) for a in l1)
-print(s)",author_3,2024,1,StephaneBranly
+print(s)",author_3,1
 "valid_reports = 0
 for report in input():
     levels = report.replace('\n','').split(' ')
@@ -292,7 +295,7 @@ for report in input():
                 diff_levels = [int(a) - int(b) for a, b in zip(modified_levels, modified_levels[1:])]
                 if check_rules(diff_levels):
                     valid_reports += 1
-                    break",author_3,2024,2,
+                    break",author_3,2
 "if int(os.environ.get('part', 1)) <= 1: # part 1
     for line in input():
         mults = re.finditer('mul\\((\\d+),(\\d+)\\)', line)
@@ -303,7 +306,7 @@ else: # part 2
         instructions = [(-1, instructions[-1][1])] + [(m.start(), m.group(1) == 'do()') for m in re.finditer(""(do\\(\\)|don't\\(\\))"", line)]
         mults = re.finditer('mul\\((\\d+),(\\d+)\\)', line)
         r += sum([int(m.group(1)) * int(m.group(2)) for m in mults if [exe for start, exe in instructions if start < m.start()][-1]])
-print(r)",author_3,2024,3,
+print(r)",author_3,3
 "if int(os.environ.get('part', 1)) <= 1: # part 1
     for i, line in enumerate(map):
         for j, cell in enumerate(line):
@@ -315,7 +318,7 @@ print(r)",author_3,2024,3,
                         if nx < 0 or nx >= len(map) or ny < 0 or ny >= len(line) or map[nx][ny] != l:
                             valid = False
                             break
-                    if valid: count += 1",author_3,2024,4,
+                    if valid: count += 1",author_3,4
 "def is_valid_instruction(instruction, start_index=0):
     for index, page in enumerate(instruction[start_index:]):
         index+=start_index
@@ -335,7 +338,7 @@ for instruction in instructions:
             valid, i, j = is_valid_instruction(instruction, i)
         sum += instruction[math.floor(len(instruction) / 2)]
 
-print(sum)",author_3,2024,5,
+print(sum)",author_3,5
 "map, i = [], 1
 for line in input():
     line = line.replace('\n','')
@@ -357,7 +360,7 @@ while continuer:
         if map[next_y][next_x] == '.':
             map[next_y] = map[next_y][:next_x] + directions[agent['direction']]['marker'] + map[next_y][next_x + 1:]
             count += 1
-        agent['position'] = (next_y, next_x)",author_3,2024,6,
+        agent['position'] = (next_y, next_x)",author_3,6
 "def is_valid(test_value, sum, operands):
     if not len(operands):
         return test_value == sum
@@ -369,7 +372,7 @@ while continuer:
     
     if int(os.environ.get('part', 1)) > 1: # part 2
         return is_valid(test_value, int(f'{sum}{operands[0]}'), operands[1:])
-    return False",author_3,2024,7,
+    return False",author_3,7
 "step_1 = int(os.environ.get('part', 1)) <= 1
 
 antennas = {}
@@ -387,7 +390,7 @@ def check_antinodes(new_antenna, antennas, antinodes_map):
                 else:
                     valid = False
                 if step_1: valid = False
-                d += 1",author_3,2024,8,
+                d += 1",author_3,8
 "while continuer:
     while space[last_digit] == '.' and last_digit >= 0:
         last_digit -= 1
@@ -404,7 +407,7 @@ def check_antinodes(new_antenna, antennas, antinodes_map):
             space[available_space[0] + i], space[last_digit - i] = space[last_digit - i], space[available_space[0] + i]
         available_spaces[compatible[0]] = (available_space[0] + block_size, available_space[1], available_space[2] - block_size)
         
-    last_digit -= block_size",author_3,2024,9,
+    last_digit -= block_size",author_3,9
 "def explore_cell(y, x):
     if (y, x) in transitions: return transitions[(y, x)]
     nexts = []
@@ -420,29 +423,29 @@ def check_antinodes(new_antenna, antennas, antinodes_map):
     if int(os.environ.get('part', 1)) > 1: # part 2
         nexts = list(set(nexts))
     transitions[(y, x)] = nexts
-    return nexts",author_3,2024,10,
+    return nexts",author_3,10
 "for a, b in zip(sorted(n[::2]), sorted(n[1::2])):
     s1 += abs(a - b)
     s2 += a * n[1::2].count(a)
-print(s1, s2, sep=""\n"")",author_4,2024,1,LiquidFun
+print(s1, s2, sep=""\n"")",author_4,1
 "for line in open(0):
     n = [int(a) for a in line.split()]
     s1 += is_safe(n)
     s2 += any(is_safe(n[:i] + n[i+1:]) for i in range(len(n)))
-print(s1, s2, sep=""\n"")",author_4,2024,2,
+print(s1, s2, sep=""\n"")",author_4,2
 "for a, b, dont in re.findall(r""mul\((\d+),(\d+)\)|do(n't)?"", open(0).read()):
     if a or b:
         s1 += int(a) * int(b)
         s2 += int(a) * int(b) * enabled
     else:
         enabled = dont == ''
-print(s1, s2, sep=""\n"")",author_4,2024,3,
+print(s1, s2, sep=""\n"")",author_4,3
 "s1 = s2 = 0
 for c in coords:
     for d in [1, 1j, 1+1j, 1-1j, -1, -1j, -1+1j, -1-1j]:
         s1 += g(c) + g(c+d) + g(c+d*2) + g(c+d*3) == ""XMAS""
         if d.imag and d.real:
-            s2 += g(c+d) + g(c) + g(c-d) == ""MAS"" and g(c+d*1j) + g(c-d*1j) == ""MS""",author_4,2024,4,
+            s2 += g(c+d) + g(c) + g(c-d) == ""MAS"" and g(c+d*1j) + g(c-d*1j) == ""MS""",author_4,4
 "s = [0, 0]
 for row in pages.splitlines():
     old, new = row.split("",""), []
@@ -450,7 +453,7 @@ for row in pages.splitlines():
         if o in new: continue
         if all(b in new for b, a in rules if o == a and b in old):
             new.append(o)
-    s[new != old] += int(new[len(new)//2])",author_4,2024,5,
+    s[new != old] += int(new[len(new)//2])",author_4,5
 "def solve(obstruction, pos=start, d=-1j):
     seen = set()
     while pos in coords:
@@ -463,7 +466,7 @@ for row in pages.splitlines():
         d *= 1j
         if (pos, d) in seen:
             return True
-",author_4,2024,6,
+",author_4,6
 "s1 = s2 = 0
 for line in open(0):
     first, rest = line.split("": "")
@@ -479,13 +482,13 @@ for line in open(0):
             op = [add, mul, concat][index]
             s = op(s, n[i+1])
             if s > first:
-                break",author_4,2024,7,
+                break",author_4,7
 "for char, coord in order:
     if char == '.': continue
     for (a, _), (b, _) in combinations(coord, r=2):
         diff = a - b
         p1 |= {a + diff*i for i in (-2, 1)}
-        p2 |= {a + diff*i for i in range(-100, 100)}",author_4,2024,8,
+        p2 |= {a + diff*i for i in range(-100, 100)}",author_4,8
 "def solve1(files, s=0, index=-1, f=-1):
     while f+1 < len(files):
         file = files[f := f + 1]
@@ -499,7 +502,7 @@ for line in open(0):
                     files.pop()
                 if len(files)-1 == f:
                     break
-    return s",author_4,2024,9,
+    return s",author_4,9
 "def hike(c, peaks, paths=0):
     if coords[c] == 9: 
         peaks.add(c)
@@ -513,12 +516,12 @@ p1, s2 = {c: set() for c in coords}, 0
 for c in coords:
     if coords[c] == 0:
         s2 += hike(c, p1[c])
-",author_4,2024,10,
+",author_4,10
 "def parse(data):
     rows = get_numbers_from_lines(data)
     location_ids_1 = [id[0] for id in rows]
     location_ids_2 = [id[1] for id in rows]
-    return [location_ids_1, location_ids_2]",author_5,2024,1,TessFerrandez
+    return [location_ids_1, location_ids_2]",author_5,1
 "def is_safe(report):
     increasing = report[1] > report[0]
 
@@ -533,7 +536,7 @@ for c in coords:
             diff = report[i] - report[i - 1]
             if not (-3 <= diff <= -1):
                 return False
-        return True",author_5,2024,2,
+        return True",author_5,2
 "def multiply(data):
     multiplication_statements = re.findall(r""mul\([\d]+,[\d]+\)"", data)
     total = 0
@@ -541,7 +544,7 @@ for c in coords:
         x, y = map(int, re.findall(r""[\d]+"", statement))
         total += x * y
     return total
-",author_5,2024,3,
+",author_5,3
 "def parse(data):
     xes, ms = [], []
     word_soup = defaultdict(lambda: """")
@@ -552,12 +555,12 @@ for c in coords:
                 xes.append((i,j))
             if char == 'M':
                 ms.append((i,j))
-    return word_soup, xes, ms",author_5,2024,4,
+    return word_soup, xes, ms",author_5,4
 "def parse(data):
     rules, updates = get_groups(data)
     rules = get_numbers_from_lines(rules)
     updates = get_numbers_from_lines(updates)
-    return rules, updates",author_5,2024,5,
+    return rules, updates",author_5,5
 "def parse(data):
     data = data.splitlines()
     obstacles = set()
@@ -569,7 +572,7 @@ for c in coords:
                 start = (x, y)
     width = len(data[0])
     height = len(data)
-    return obstacles, start, width, height",author_5,2024,6,
+    return obstacles, start, width, height",author_5,6
 "def part1(data):
     def is_good(target, terms):
         if len(terms) == 1:
@@ -584,7 +587,7 @@ for c in coords:
         if is_good(target, terms):
             good.append(target)
 
-    return sum(good)",author_5,2024,7,
+    return sum(good)",author_5,7
 "def get_anti_nodes(antennas, antenna, width, height):
     anti_nodes = set()
     antenna_locations = antennas[antenna]
@@ -599,7 +602,7 @@ for c in coords:
                 anti_nodes.add(a1)
             if in_grid(a2, width, height):
                 anti_nodes.add(a2)
-    return anti_nodes",author_5,2024,8,
+    return anti_nodes",author_5,8
 "def part1(data):
     files = data[::2]
     spaces = data[1::2]
@@ -616,7 +619,7 @@ for c in coords:
             disk.append(file_spread.pop())
         id += 1
 
-    return sum(i * id for i, id in enumerate(disk[:total_files]))",author_5,2024,9,
+    return sum(i * id for i, id in enumerate(disk[:total_files]))",author_5,9
 "def part1(grid, width, height):
     def find_paths(pos):
         end_positions = set()
@@ -637,7 +640,7 @@ for c in coords:
     paths = 0
     for start in starts:
         paths += find_paths(start)
-    return paths",author_5,2024,10,
+    return paths",author_5,10
 "class Puzzle:
     def __init__(self, text_input):
         self.input = text_input
@@ -653,7 +656,7 @@ for c in coords:
             parts = item.split()
             left.append(int(parts[0]))
             right.append(int(parts[1]))
-        return left, right",author_6,2024,1,reycardo
+        return left, right",author_6,1
 "def is_safe(self, lvl_increase):
         if (
             all(x >= 1 for x in lvl_increase) and all(x <= 3 for x in lvl_increase)
@@ -663,7 +666,7 @@ for c in coords:
             return True
         else:
             return False
-",author_6,2024,2,
+",author_6,2
 "def split_string(self, text, delimiters):
         pattern = '|'.join(map(re.escape, delimiters))
         parts = re.split(f'({pattern})', text)
@@ -681,7 +684,7 @@ for c in coords:
                 result[delimiter].append(value)
             else:
                 result[delimiter] = [value]
-        return result",author_6,2024,3,
+        return result",author_6,3
 "def get_neighbours(self, point: Point, include_self: bool = False, scalar: int = 3):
         neighbours = []
         for i in range(1,scalar+1):
@@ -692,7 +695,7 @@ for c in coords:
             for neighbour_list in transposed_neighbours:
                 neighbour_list.insert(0, point)          
         
-        return {cardinal: neighbours for cardinal, neighbours in zip(self.directions,transposed_neighbours)}",author_6,2024,4,
+        return {cardinal: neighbours for cardinal, neighbours in zip(self.directions,transposed_neighbours)}",author_6,4
 "class Update:
     def __init__(self, raw):
         self.parse_raw(raw)        
@@ -701,12 +704,12 @@ for c in coords:
         return self.pages[int((len(self.pages) - 1)/2)]
 
     def parse_raw(self, raw):
-        self.pages = list(map(int,raw.split("","")))",author_6,2024,5,
+        self.pages = list(map(int,raw.split("","")))",author_6,5
 "def add_obstacle(self, location: Point):
         """"""Add an obstacle at the specified location.
         Store this location so we can clear the obstacle later.""""""
         self._pre_obstacle_added = (location, self.value_at_point(location))
-        self.set_value_at_point(location, GuardMap.OBSTACLE)",author_6,2024,6,
+        self.set_value_at_point(location, GuardMap.OBSTACLE)",author_6,6
 "def solve(self):
         # Generate all combinations of operations
         operation_combinations = itertools.product(
@@ -732,7 +735,8 @@ for c in coords:
                 self.possible = True
                 self.successful_combinations.append(
                     operations
-                )  # Append successful combination",author_6,2024,7,
+                )  # Append successful combination
+",author_6,7
 "def get_all_chars(self):
         for point in self.grid._all_points:
             char = self.grid.value_at_point(point=point)
@@ -740,7 +744,7 @@ for c in coords:
                 if char in self.available_chars:
                     self.available_chars[char].append(point)
                 else:
-                    self.available_chars[char] = [point]",author_6,2024,8,
+                    self.available_chars[char] = [point]",author_6,8
 "def add_file(self, file: FileBlocks):
         if file.amount <= self.amount:
             self.files.append(FileBlocks(file.id, file.amount, position=self.position))
@@ -756,7 +760,7 @@ for c in coords:
             )
             self.amount -= passing_amount
             self.position += passing_amount
-            file.amount -= passing_amount",author_6,2024,9,
+            file.amount -= passing_amount",author_6,9
 "def find_trails(self, grid: Grid):        
         queue = deque()
         queue.append((self.head, 0, [self.head]))  # current_point, count, trail        
@@ -774,7 +778,7 @@ for c in coords:
                     else:
                         queue.append((neighbour, count + 1, new_trail))
         self.find_distinct_ends()
-        self.pt2_score = len(self.trails)",author_6,2024,10,
+        self.pt2_score = len(self.trails)",author_6,10
 "def parse_data(puzzle_input):
     """"""Parse input.""""""
     return list(
@@ -784,7 +788,7 @@ for c in coords:
                 for line in puzzle_input.split(""\n"")
             ]
         )
-    )",author_7,2024,1,gahjelle
+    )",author_7,1
 "def is_safe(report):
     """"""Check if a report is safe.
 
@@ -805,7 +809,7 @@ for c in coords:
     False
     """"""
     incs = [second - first for first, second in zip(report, report[1:])]
-    return all(1 <= inc <= 3 for inc in incs) or all(-3 <= inc <= -1 for inc in incs)",author_7,2024,2,
+    return all(1 <= inc <= 3 for inc in incs) or all(-3 <= inc <= -1 for inc in incs)",author_7,2
 "def parse_data(puzzle_input):
     """"""Parse input. Break lines on occurences of do()""""""
     return puzzle_input.replace(""\n"", """").split(""do()"")
@@ -818,7 +822,7 @@ def part1(data):
 
 def part2(data):
     """"""Solve part 2.""""""
-    return sum(multiplies("""".join(line.split(""don't"")[0] for line in data)))",author_7,2024,3,
+    return sum(multiplies("""".join(line.split(""don't"")[0] for line in data)))",author_7,3
 "def count_in_grid(grid, find_one, directions):
     """"""Count how many times something is found in the grid""""""
     num_rows = max(row for row, _ in grid) + 1
@@ -828,7 +832,7 @@ def part2(data):
         for row, col, dir in itertools.product(
             range(num_rows), range(num_cols), directions
         )
-    )",,2024,4,
+    )",author_7,4
 "def part1(data):
     """"""Solve part 1.""""""
     rules, updates = data
@@ -842,7 +846,7 @@ def part2(data):
         middle(order_correctly(update, rules))
         for update in updates
         if not check_update(update, rules)
-    )",,2024,5,
+    )",author_7,5
 "def add_obstacles(grid, start):
     """"""Add obstacles that create loops.
 
@@ -865,7 +869,7 @@ def part2(data):
         obstacle
         for obstacle, (pos, dir) in first_entries.items()
         if not walk(grid | {obstacle: ""#""}, pos, dir)
-    }",,2024,6,
+    }",author_7,6
 "def is_equation(target, numbers, include_concat=False):
     """"""Check that the equation can be satisfied
 
@@ -896,7 +900,7 @@ def part2(data):
         ):
             return True
 
-    return False",,2024,7,
+    return False",author_7,7
 "def find_all_antinodes(grid, antennas):
     """"""Find all resonant antinodes to the given antennas""""""
     antinodes = set()
@@ -907,7 +911,7 @@ def part2(data):
             if (antinode := (row + n * dr, col + n * dc)) not in grid:
                 break
             antinodes.add(antinode)
-    return antinodes",,2024,8,
+    return antinodes",author_7,8
 "def fragment(data):
     """"""Fragment files on disk to remove free spaces.
 
@@ -935,7 +939,7 @@ def part2(data):
         start_idx += 1
     else:
         disk.extend([start_idx] * end_len)
-    return disk",,2024,9,
+    return disk",author_7,9
 "def walk(grid, start, target=9):
     """"""Walk the grid and count how many paths that can be walked to reach targets.""""""
     layer = {start: 1}
@@ -948,7 +952,7 @@ def part2(data):
                     new_layer[new_pos] += num_paths
         layer, new_layer = new_layer, collections.defaultdict(int)
 
-    return layer",,2024,10,
+    return layer",author_7,10
 "class Dec01(Day, year=2024, day=1, title='Historian Hysteria'):
 
     @classmethod
@@ -966,7 +970,7 @@ def part2(data):
     def part_2(self):
         left = self.instructions[0]
         right = Counter(self.instructions[1])
-        return sum(item * right[item] for item in left)",author_8,2024,1,prositen
+        return sum(item * right[item] for item in left)",author_8,1
 "class ReportChecker(object):
 
     def __init__(self, values: List[int]):
@@ -981,7 +985,7 @@ def part2(data):
 
     def gradual_slope(self):
         slopes = [abs(v) for v in self.deltas]
-        return max(slopes) < 4 and min(slopes) > 0",author_8,2024,2,
+        return max(slopes) < 4 and min(slopes) > 0",author_8,2
 "class Dec03(Day, year=2024, day=3, title='Mull it over'):
     mul_pattern = re.compile(r""mul\((\d{1,3}),(\d{1,3})\)"")
 
@@ -991,7 +995,7 @@ def part2(data):
 
     @timer(part=1)
     def part_1(self):
-        return sum(int(m[0]) * int(m[1]) for m in self.mul_pattern.findall(self.instructions))",author_8,2024,3,
+        return sum(int(m[0]) * int(m[1]) for m in self.mul_pattern.findall(self.instructions))",author_8,3
 "class WordSearch(object):
 
     def __init__(self, data):
@@ -1016,7 +1020,7 @@ def part2(data):
         for y, line in enumerate(self.rows):
             for x, char in enumerate(line):
                 diag[x + y].append(char)
-                bdiag[x - y].append(char)",author_8,2024,4,
+                bdiag[x - y].append(char)",author_8,4
 " @staticmethod
     def parse_instructions(instructions):
         groups = Day.parse_groups(instructions)
@@ -1033,7 +1037,7 @@ def part2(data):
                 set(pages[i + 1:]) & self.rules[page]
                 for i, page in enumerate(pages)
             ])
-        return self.cache[index]",author_8,2024,5,
+        return self.cache[index]",author_8,5
 "class Facing(StrEnum):
     North = 'north'
     East = 'east'
@@ -1050,7 +1054,7 @@ def part2(data):
                 return Facing.West
             case Facing.West:
                 return Facing.North
-",author_8,2024,6,
+",author_8,6
 " def get_value(self):
         todo = deque([(self.operands[0], 1)])
         _len = len(self.operands) - 1
@@ -1066,7 +1070,7 @@ def part2(data):
                     continue
                 elif index < _len:
                     todo.append((r_op, index + 1))
-        return 0",author_8,2024,7,
+        return 0",author_8,7
 "def count_anti_nodes(self):
         for antenna, positions in self.antennas.items():
             for p1, p2 in itertools.combinations(positions, 2):
@@ -1079,7 +1083,7 @@ def part2(data):
                 for point in self.get_points(p2, -dy, -dx):
                     self.anti_nodes.add(point)
 
-        return len(self.anti_nodes)",author_8,2024,8,
+        return len(self.anti_nodes)",author_8,8
 "def deallocate(self, pos, size):
         self.blocks[pos:pos + size] = (-1,) * size
         spaces = list()
@@ -1101,7 +1105,7 @@ def part2(data):
             size += right[1]
             spaces = spaces[1:]
         self.free_space.append((pos, size))
-        self.free_space.extend(spaces[1:])",author_8,2024,9,
+        self.free_space.extend(spaces[1:])",author_8,9
 "def walk(self, can_revisit=False):
         positions = deque()
         seen_count = 0
@@ -1118,7 +1122,7 @@ def part2(data):
                 for nb in self.neighbours(pos):
                     if self.at(nb) == height + 1:
                         positions.append((th, nb))
-        return seen_count",author_8,2024,10,
+        return seen_count",author_8,10
 "from collections import Counter
 
 input_file = ""input""
@@ -1127,7 +1131,7 @@ left, right = map(sorted, zip(*list(map(int, line.split()) for line in open(inpu
 left_2, right_2 = Counter(left), Counter(right)
 
 print(sum(abs(r - l) for l, r in zip(left, right)))
-print(sum(occ * k * right_2[k] for k, occ in left_2.items()))",author_9,2024,1,TurtleSmoke
+print(sum(occ * k * right_2[k] for k, occ in left_2.items()))",author_9,1
 "def is_safe(nums):
     delta = [a - b for a, b in zip(nums, nums[1:])]
     return all(1 <= abs(d) <= 3 for d in delta) and all(d * delta[0] > 0 for d in delta)
@@ -1140,7 +1144,7 @@ def is_safe_with_dampener(nums):
 
 
 print(sum(map(is_safe, reports)))
-print(sum(map(is_safe_with_dampener, reports)))",author_9,2024,2,
+print(sum(map(is_safe_with_dampener, reports)))",author_9,2
 "import re
 
 input_file = ""input""
@@ -1152,7 +1156,7 @@ res2 = get_numbers(
 )
 
 print(sum(int(x) * int(y) for x, y in res1))
-print(sum(int(x) * int(y) for x, y in res2))",author_9,2024,3,
+print(sum(int(x) * int(y) for x, y in res2))",author_9,3
 "data = defaultdict(
     str,
     {x + 1j * y: c for y, r in enumerate(open(input_file)) for x, c in enumerate(r.strip())},
@@ -1168,7 +1172,7 @@ for c in data.copy():
             res2 += data[c + d] + data[c] + data[c - d] == ""MAS"" and data[c + d * 1j] + data[c - d * 1j] == ""MS""
 
 print(res1)
-print(res2)",author_9,2024,4,
+print(res2)",author_9,4
 "graph = defaultdict(set)
 for src, dst in rules:
     graph[src].add(dst)
@@ -1182,7 +1186,7 @@ for update in updates:
         res2 += int(valid_update[len(valid_update) // 2])
 
 print(res1)
-print(res2)",author_9,2024,5,
+print(res2)",author_9,5
 "def walk(graph, start, part2):
     pos = start
     dir = -1
@@ -1197,7 +1201,7 @@ print(res2)",author_9,2024,5,
         return (pos, dir) in visited
     else:
         visited.add((pos, dir))
-        return {pos for pos, _ in visited}",author_9,2024,6,
+        return {pos for pos, _ in visited}",author_9,6
 "def dfs(numbers, part2):
     if len(numbers) == 1:
         yield numbers[0]
@@ -1214,7 +1218,7 @@ res1 = sum(numbers[0] for numbers in data if any(numbers[0] == res for res in df
 res2 = sum(numbers[0] for numbers in data if any(numbers[0] == res for res in dfs(numbers[1:], True)))
 
 print(res1)
-print(res2)",author_9,2024,7,
+print(res2)",author_9,7
 "import itertools
 
 input_file = ""input""
@@ -1233,7 +1237,7 @@ res = lambda echos: len(
         for x, y in list(itertools.permutations(antenna_pos, 2))
         if x + d * (x - y) in data
     )
-)",author_9,2024,8,
+)",author_9,8
 "def solve1(states):
     used_idx, free_idx = len(states) - 1, 0
     while used_idx > free_idx:
@@ -1254,7 +1258,7 @@ res = lambda echos: len(
         if not states[used_idx][1]:
             used_idx -= 1
 
-    return states",author_9,2024,9,
+    return states",author_9,9
 "input_file = ""input""
 
 data = {y + x * 1j: int(v) for x, row in enumerate(open(input_file)) for y, v in enumerate(row.strip())}
@@ -1264,12 +1268,12 @@ for hike in range(1, 10):
     starts = [[p + d for p in poses for d in [1, -1, 1j, -1j] if data.get(p + d) == hike] for poses in starts]
 
 print(sum(map(len, map(set, starts))))
-print(len(list(x for y in starts for x in y)))",author_9,2024,10,
+print(len(list(x for y in starts for x in y)))",author_9,10
 "a = list(map(list, zip(*[list(map(int, line.split())) for line in open(0).read().splitlines()])))
 
 for k in a: k.sort()
 
-print(sum(abs(x - y) for x, y in zip(*a)))",author_10,2024,1,hyperneutrino
+print(sum(abs(x - y) for x, y in zip(*a)))",author_10,1
 "count = 0
 
 def safe(levels):
@@ -1281,7 +1285,7 @@ for report in open(0):
     if safe(levels):
         count += 1
 
-print(count)",author_10,2024,2,
+print(count)",author_10,2
 "import re
 
 memory = open(0).read()
@@ -1292,7 +1296,7 @@ for match in re.findall(r""mul\(\d{1,3},\d{1,3}\)"", memory):
     x, y = map(int, match[4:-1].split("",""))
     total += x * y
 
-print(total)",author_10,2024,3,
+print(total)",author_10,3
 "grid = open(0).read().splitlines()
 
 count = 0
@@ -1307,7 +1311,7 @@ for r in range(len(grid)):
                 if grid[r + dr][c + dc] == ""M"" and grid[r + 2 * dr][c + 2 * dc] == ""A"" and grid[r + 3 * dr][c + 3 * dc] == ""S"":
                     count += 1
 
-print(count)",author_10,2024,4,
+print(count)",author_10,4
 "for line in file:
     if line.isspace(): break
     rules.append(list(map(int, line.split(""|""))))
@@ -1326,7 +1330,7 @@ def is_ordered(update):
                 return False
     return True
 
-total = 0",author_10,2024,5,
+total = 0",author_10,5
 "for r in range(rows):
     for c in range(cols):
         if grid[r][c] == ""^"":
@@ -1336,19 +1340,19 @@ total = 0",author_10,2024,5,
     break
 
 dr = -1
-dc = 0",author_10,2024,6,
+dc = 0",author_10,6
 "def can_obtain(target, array):
     if len(array) == 1: return target == array[0]
     if target % array[-1] == 0 and can_obtain(target // array[-1], array[:-1]): return True
     if target > array[-1] and can_obtain(target - array[-1], array[:-1]): return True
-    return False",author_10,2024,7,
+    return False",author_10,7
 "for array in antennas.values():
     for i in range(len(array)):
         for j in range(i + 1, len(array)):
             r1, c1 = array[i]
             r2, c2 = array[j]
             antinodes.add((2 * r1 - r2, 2 * c1 - c2))
-            antinodes.add((2 * r2 - r1, 2 * c2 - c1))",author_10,2024,8,
+            antinodes.add((2 * r2 - r1, 2 * c2 - c1))",author_10,8
 "for i, char in enumerate(input()):
     x = int(char)
     if i % 2 == 0:
@@ -1357,7 +1361,7 @@ dc = 0",author_10,2024,6,
     else:
         disk += [-1] * x
 
-blanks = [i for i, x in enumerate(disk) if x == -1]",author_10,2024,9,
+blanks = [i for i, x in enumerate(disk) if x == -1]",author_10,9
 "def score(grid, r, c):
     q = deque([(r, c)])
     seen = {(r, c)}
@@ -1373,7 +1377,7 @@ blanks = [i for i, x in enumerate(disk) if x == -1]",author_10,2024,9,
                 summits += 1
             else:
                 q.append((nr, nc))
-    return summits",author_10,2024,10,
+    return summits",author_10,10
 "def solve(input_data: str) -> str:
     leftColList = []
     rightColList = []
@@ -1390,7 +1394,7 @@ blanks = [i for i, x in enumerate(disk) if x == -1]",author_10,2024,9,
     for i in range(len(leftColList)):
         diffSum = diffSum + abs(leftColList[i]- rightColList[i])
     
-    return diffSum",author_11,2024,1,itsvncl
+    return diffSum",author_11,1
 "def is_safe(number_str_array):
     prev_num = int(number_str_array[0])
     is_descending = prev_num > int(number_str_array[1])
@@ -1408,7 +1412,7 @@ blanks = [i for i, x in enumerate(disk) if x == -1]",author_10,2024,9,
                 return False
             prev_num = curr_num
         
-    return True",author_11,2024,2,
+    return True",author_11,2
 "from utils import load_input, time_solution, InputType
 import re
 
@@ -1418,7 +1422,7 @@ def solve(input_data: str) -> str:
 if __name__ == ""__main__"":
     input_data = load_input(3, InputType.MAIN)
     result = time_solution(solve, input_data)
-    print(f""Result: {result}"")",author_11,2024,3,
+    print(f""Result: {result}"")",author_11,3
 "def find_words_in_grid(grid: List[str], word: str) -> int:
     word_count = 0
     for i in range(len(grid)):
@@ -1432,7 +1436,7 @@ if __name__ == ""__main__"":
                 word_count += is_word_in_direction(grid, i - 1, j - 1, -1, -1, word, 1)
                 word_count += is_word_in_direction(grid, i - 1, j + 1, -1, 1, word, 1)
                 word_count += is_word_in_direction(grid, i + 1, j - 1, 1, -1, word, 1)
-    return word_count",author_11,2024,4,
+    return word_count",author_11,4
 "from utils import load_input, time_solution, InputType
 
 def solve(input_data: str) -> str:    
@@ -1441,7 +1445,7 @@ def solve(input_data: str) -> str:
 if __name__ == ""__main__"":
     input_data = load_input(5, InputType.MAIN)
     result = time_solution(solve, input_data)
-    print(f""Result: {result}"")",author_11,2024,5,
+    print(f""Result: {result}"")",author_11,5
 "def simulate_guard(lab_map, start_pos,  direction = [-1 , 0], obstacle = '#', step_marker = 'X') -> int:
     bound_i, bound_j = len(lab_map), len(lab_map[0]) 
     loc_i, loc_j = start_pos
@@ -1459,7 +1463,7 @@ if __name__ == ""__main__"":
         loc_i += direction[0]        
         loc_j += direction[1]
 
-    return unique_pos_count ",author_11,2024,6,
+    return unique_pos_count ",author_11,6
 "def add_or_multiply(current_sum: int, operand: str, value_searched: int, number_array: List[int], level: int = 1):
     global value_found
     if current_sum == value_searched and level == len(number_array):
@@ -1477,7 +1481,7 @@ if __name__ == ""__main__"":
     elif operand == MULTI:
         new_sum = current_sum * current_number
         add_or_multiply(new_sum, ADD, value_searched, number_array, new_level)
-        add_or_multiply(new_sum, MULTI, value_searched, number_array, new_level)",author_11,2024,7,
+        add_or_multiply(new_sum, MULTI, value_searched, number_array, new_level)",author_11,7
 " bound_i = len(grid)
     bound_j = len(grid[0])
     anti_node_set = set()
@@ -1494,7 +1498,7 @@ if __name__ == ""__main__"":
 if __name__ == ""__main__"":
     input_data = load_input(8, InputType.MAIN)
     result = time_solution(solve, input_data)
-    print(f""Result: {result}"")",author_11,2024,8,
+    print(f""Result: {result}"")",author_11,8
 "def read_disk(input_data:str) -> Tuple[deque[str], deque[str], deque[int]]:
     free_space_groups = deque()
     file_blocks = deque()
@@ -1516,7 +1520,7 @@ if __name__ == ""__main__"":
         is_file = not is_file
         space_index += block_size
     
-    return (file_blocks, file_groups, free_space_groups)",author_11,2024,9,
+    return (file_blocks, file_groups, free_space_groups)",author_11,9
 "def solve(input_data: str) -> str:
     grid = list(map(lambda list: [int(digit) for digit in list], input_data.splitlines()))
 
@@ -1527,13 +1531,13 @@ if __name__ == ""__main__"":
                 reached_set = set()
                 trails += trail_walk(grid, i, j, 0, reached_set)
 
-    return trails",author_11,2024,10,
+    return trails",author_11,10
 "import re
 
 dat = [
-	(15244,   50562),
-	(81245,   49036),
-	# ...
+        (15244,   50562),
+        (81245,   49036),
+        # ...
 ]
 
 a = [i[0] for i in dat]
@@ -1546,7 +1550,7 @@ print(n)
 from collections import Counter
 b = Counter(b)
 n = sum(b.get(i, 0)*i for i in a)
-print(n)",author_12,2024,1,mrphilip
+print(n)",author_12,1
 "dat = [
 	(1,3,5,6,8,9,12,9),
 	(66,67,70,72,73,74,75,75),
@@ -1561,24 +1565,24 @@ def safe(s):
 		if all(i != j and j-3 <= i <= j+3 for i,j in zip(s,s[1:])):
 			return True
 	return False
-print(sum(1 for i in dat if safe(i)))",author_12,2024,2,
+print(sum(1 for i in dat if safe(i)))",author_12,2
 "dat = """"""what()who(){from(),'mul(28,510)?<,>where()why()mul(...etc...""""""
 
 n = 0
 for a, b in re.findall(r""mul\((\d+),(\d+)\)"", dat):
-	n += int(a) * int(b)
+        n += int(a) * int(b)
 print(n)
 
 n = 0
 enabled = True
 for a, b, c in re.findall(r""mul\((\d+),(\d+)\)|(do(?:n't)?)\(\)"", dat):
-	if c == ""do"":
-		enabled = True
-	elif c == ""don't"":
-		enabled = False
-	elif enabled:
-		n += int(a) * int(b)
-print(n)",author_12,2024,3,
+        if c == ""do"":
+                enabled = True
+        elif c == ""don't"":
+                enabled = False
+        elif enabled:
+                n += int(a) * int(b)
+print(n)",author_12,3
 "def unroll(board):
 	rows = ["""".join(row) for row in board]
 	cols = ["""".join(col) for col in zip(*board)]
@@ -1600,7 +1604,7 @@ for y in range(1,SIZE-1):
 		if {dat[y-1][x+1], dat[y+1][x-1]} != {""M"", ""S""}:
 			continue
 		n += 1
-print(n)",author_12,2024,4,
+print(n)",author_12,4
 "from functools import cmp_to_key
 def cmp(a, b):
 	if (a,b) in pairs:
@@ -1617,31 +1621,31 @@ for row in dat2:
 	row = list(row)
 	row.sort(key=key)
 	n += row[len(row)//2]
-print(n)",author_12,2024,5,
+print(n)",author_12,5
 "def go():
-	dx, dy = 0, -1
-	px, py = sx, sy
-	seen = {(px, py)}
-	seen_dir = set()
-	while True:
-		if not (0 <= px+dx < CX and 0 <= py+dy < CY):
-			return len(seen)
-		if (px, py, dx, dy) in seen_dir:
-			return None
-		seen_dir.add((px, py, dx, dy))
-		if dat[py+dy][px+dx]:
-			dx, dy = -dy, dx
-		else:
-			px += dx
-			py += dy
-			seen.add((px, py))
+        dx, dy = 0, -1
+        px, py = sx, sy
+        seen = {(px, py)}
+        seen_dir = set()
+        while True:
+                if not (0 <= px+dx < CX and 0 <= py+dy < CY):
+                        return len(seen)
+                if (px, py, dx, dy) in seen_dir:
+                        return None
+                seen_dir.add((px, py, dx, dy))
+                if dat[py+dy][px+dx]:
+                        dx, dy = -dy, dx
+                else:
+                        px += dx
+                        py += dy
+                        seen.add((px, py))
 
-print(go())",author_12,2024,6,
+print(go())",author_12,6
 "def solvable(vals, res, ops=""+*""):
-	for i in itertools.product(ops, repeat=len(vals)-1):
-		if calc(vals, i) == res:
-			return True
-	return False",author_12,2024,7,
+        for i in itertools.product(ops, repeat=len(vals)-1):
+                if calc(vals, i) == res:
+                        return True
+        return False",author_12,7
 "for grp in grouped.values():
 	for i in range(len(grp)-1):
 		for j in range(i+1,len(grp)):
@@ -1654,7 +1658,7 @@ print(go())",author_12,2024,6,
 			if 0 <= xa < CX and 0 <= ya < CY:
 				antis.add((xa, ya))
 			if 0 <= xb < CX and 0 <= yb < CY:
-				antis.add((xb, yb))",author_12,2024,8,
+				antis.add((xb, yb))",author_12,8
 "disk = []
 i = 0
 toggle = True
@@ -1664,31 +1668,31 @@ for c in dat:
 		i += 1
 	else:
 		disk.extend([None] * int(c))
-	toggle = not toggle",author_12,2024,9,
+	toggle = not toggle",author_12,9
 "def eval(x,y):
-	seen = set()
-	todo = [(x,y)]
-	n = 0
-	while todo:
-		x,y = todo.pop()
-		if (x,y) in seen:
-			continue
-		seen.add((x,y))
-		c = dat[y][x]
-		if c == 9:
-			n += 1
-			continue
-		for nx,ny in [(x-1,y),(x+1,y),(x,y-1),(x,y+1)]:
-			if 0 <= nx < CX and 0 <= ny < CY and dat[ny][nx] == c + 1:
-				todo.append((nx, ny))
-	return n
+        seen = set()
+        todo = [(x,y)]
+        n = 0
+        while todo:
+                x,y = todo.pop()
+                if (x,y) in seen:
+                        continue
+                seen.add((x,y))
+                c = dat[y][x]
+                if c == 9:
+                        n += 1
+                        continue
+                for nx,ny in [(x-1,y),(x+1,y),(x,y-1),(x,y+1)]:
+                        if 0 <= nx < CX and 0 <= ny < CY and dat[ny][nx] == c + 1:
+                                todo.append((nx, ny))
+        return n
 
 n = 0
 for y, row in enumerate(dat):
-	for x, c in enumerate(row):
-		if c == 0:
-			n += eval(x,y)
-print(n)",author_12,2024,10,
+        for x, c in enumerate(row):
+                if c == 0:
+                        n += eval(x,y)
+print(n)",author_12,10
 "if(__name__ == ""__main__""):
     dat = get_data(day=1, year=2024)
     
@@ -1700,7 +1704,7 @@ print(n)",author_12,2024,10,
     
     dist = sum(abs(x-y) for x,y in zip(sorted(l),sorted(r)))
     print(f""Part 1 - The total distance between the lists is: {dist}"")
-    submit(dist, part=""a"", day=1, year=2024)",author_13,2024,1,Bikatr7
+    submit(dist, part=""a"", day=1, year=2024)",author_13,1
 "def is_saf(lvl):
     for i in range(len(lvl)-1):
         if(lvl[i] == lvl[i+1]):
@@ -1713,7 +1717,7 @@ print(n)",author_12,2024,10,
     if(not (inc or dec)):
         return False
     
-    return all(1 <= abs(d) <= 3 for d in dif)",author_13,2024,2,
+    return all(1 <= abs(d) <= 3 for d in dif)",author_13,2
 "def find_enabld(dat):
     mp = r""mul\((\d{1,3}),(\d{1,3})\)""
     dp = r""do\(\)""
@@ -1743,7 +1747,7 @@ print(n)",author_12,2024,10,
             else:
                 p += 1
     
-    return t",author_13,2024,3,
+    return t",author_13,3
 "def slv(grd):
     r=len(grd)
     c=len(grd[0])
@@ -1763,7 +1767,7 @@ print(n)",author_12,2024,10,
             if(forward == ""XMAS""):
                 ans+=1
             if(backward == ""XMAS""):
-                ans+=1",author_13,2024,4,
+                ans+=1",author_13,4
 "def prs(d):
     r,s=d.split(""\n\n"")
     
@@ -1778,7 +1782,7 @@ print(n)",author_12,2024,10,
         if(not x): continue
         sq.append([int(y) for y in x.split("","")])
     
-    return rl,sq",author_13,2024,5,
+    return rl,sq",author_13,5
 "def prs(d):
     g=[]
     s=None
@@ -1791,7 +1795,7 @@ print(n)",author_12,2024,10,
 
 def nxt(d):
     dr=[(0,1),(1,0),(0,-1),(-1,0)]
-    return dr[(dr.index(d)+1)%4]",author_13,2024,6,
+    return dr[(dr.index(d)+1)%4]",author_13,6
 "def chk(t,n,c=False):
     if(len(n)==1):
         return n[0]==t
@@ -1826,7 +1830,7 @@ def nxt(d):
             break
         o[i]+=1
     
-    return False",author_13,2024,7,
+    return False",author_13,7
 "def slv1(d):
     a,h,w=prs(d)
     n=set()
@@ -1859,7 +1863,7 @@ def nxt(d):
                     n2=(x2+dx,y2+dy)
                     if(0<=n1[0]<w and 0<=n1[1]<h):n.add(n1)
                     if(0<=n2[0]<w and 0<=n2[1]<h):n.add(n2)
-    return len(n)",author_13,2024,8,
+    return len(n)",author_13,8
 "def cmp1(f,s):
     d=[]
     i=0
@@ -1880,7 +1884,7 @@ def nxt(d):
                 d[p]=d[i]
                 d[i]=-1
                 p+=1
-    return d",author_13,2024,9,
+    return d",author_13,9
 "def nbr(x,y,h,w):
     d=[(0,1),(1,0),(0,-1),(-1,0)]
     n=[]
@@ -1896,7 +1900,7 @@ def fnd(g):
         for x in range(len(g[0])):
             if(g[y][x]==0):
                 t.append((x,y))
-    return t",author_13,2024,10,
+    return t",author_13,10
 "for line in lines:
     l, r = map(int, line.split())  # Split each line into two numbers
     left.append(l)                # Add to left list
@@ -1910,7 +1914,7 @@ right.sort()
 total_distance = sum(abs(l - r) for l, r in zip(left, right))
 
 # Print the result
-print(""Total distance:"", total_distance)",author_14,2024,1,arhamansari11
+print(""Total distance:"", total_distance)",author_14,1
 "def is_safe_report(report):
     differences = [report[i + 1] - report[i] for i in range(len(report) - 1)]
     
@@ -1926,7 +1930,7 @@ print(""Total distance:"", total_distance)",author_14,2024,1,arhamansari11
 
 # Read the input file
 with open(""e:/Advent of Code/Day-02/input1.txt"", ""r"") as file:
-    lines = file.read().strip().split(""\n"")",author_14,2024,2,
+    lines = file.read().strip().split(""\n"")",author_14,2
 "def sum_valid_multiplications(file_path):
     # Read the input file
     with open(file_path, ""r"") as f:
@@ -1945,7 +1949,7 @@ with open(""e:/Advent of Code/Day-02/input1.txt"", ""r"") as file:
         # Multiply and add to total sum
         total_sum += numbers[0] * numbers[1]
     
-    return total_sum",author_14,2024,3,
+    return total_sum",author_14,3
 "# Helper function to count occurrences in a line
     def count_in_line(line):
         return sum(line[i:i + target_len] == target for i in range(len(line) - target_len + 1))
@@ -1973,14 +1977,14 @@ with open(""e:/Advent of Code/Day-02/input1.txt"", ""r"") as file:
         total_count += count_in_line(anti_diagonal)
         total_count += count_in_line(anti_diagonal[::-1])
 
-    return total_count",author_14,2024,4,
+    return total_count",author_14,4
 "def is_correct_order(update, rules):
     for rule in rules:
         if rule[0] in update and rule[1] in update:
             # Ensure that rule[0] appears before rule[1] in the update
             if update.index(rule[0]) > update.index(rule[1]):
                 return False
-    return True",author_14,2024,5,
+    return True",author_14,5
 "def guard_patrol(grid):
     directions = {'^': (-1, 0), '>': (0, 1), 'v': (1, 0), '<': (0, -1)}
     direction_order = ['^', '>', 'v', '<']
@@ -2009,7 +2013,7 @@ with open(""e:/Advent of Code/Day-02/input1.txt"", ""r"") as file:
             # Move forward
             guard_pos = next_pos
 
-    return visited",author_14,2024,6,
+    return visited",author_14,6
 "def evaluate_equation(numbers, operators):
     """"""
     Evaluate the equation formed by inserting the operators into the numbers list.
@@ -2020,7 +2024,7 @@ with open(""e:/Advent of Code/Day-02/input1.txt"", ""r"") as file:
             expression += numbers[i + 1]
         elif operators[i] == '*':
             expression *= numbers[i + 1]
-    return expression",author_14,2024,7,
+    return expression",author_14,7
 "def find_unique_antinodes_from_file(file_path):
     from collections import defaultdict
     # Step 1: Read the input file and parse the grid
@@ -2058,7 +2062,7 @@ with open(""e:/Advent of Code/Day-02/input1.txt"", ""r"") as file:
                 if 0 <= r_antin2 < rows and 0 <= c_antin2 < cols:
                     unique_antinodes.add((r_antin2, c_antin2))
     # Step 3: Return the count of unique antinodes
-    return len(unique_antinodes)",author_14,2024,8,
+    return len(unique_antinodes)",author_14,8
 "s = dat[0]
 files = []
 layout = []
@@ -2085,7 +2089,7 @@ while True:
     for i in range(len(layout) - 1, -1, -1):
         if layout[i] != ""."":
             layout[gap_index], layout[i] = layout[i], "".""
-            break",author_14,2024,9,
+            break",author_14,9
 "def dfs(map_, visited, x, y):
     """"""Perform depth-first search to find hiking trails starting from a given position.""""""
     stack = [(x, y, 0)]  # (current_x, current_y, current_height)
@@ -2112,7 +2116,7 @@ while True:
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             stack.append((cx + dx, cy + dy, height + 1))
 
-    return len(reachable_nines)",author_14,2024,10,
+    return len(reachable_nines)",author_14,10
 "class Solution(StrSplitSolution):
     _year = 2024
     _day = 1
@@ -2127,7 +2131,7 @@ while True:
         c = Counter(r)
         similarity_score = sum(i * c.get(i, 0) for i in l)
 
-        return total_distance, similarity_score",author_15,2024,1,xavdid
+        return total_distance, similarity_score",author_15,1
 "class Solution(StrSplitSolution):
     _year = 2024
     _day = 2
@@ -2140,7 +2144,7 @@ while True:
     def part_2(self) -> int:
         lists = [parse_ints(line.split()) for line in self.input]
 
-        return sum(is_safe(l) or any(is_safe(o) for o in omit_one(l)) for l in lists)",author_15,2024,2,
+        return sum(is_safe(l) or any(is_safe(o) for o in omit_one(l)) for l in lists)",author_15,2
 "@answer(83158140)
     def part_2(self) -> int:
         instructions = re.finditer(
@@ -2161,7 +2165,7 @@ while True:
                 # we hit mul but are inactive; skip!
                 pass
 
-        return total",author_15,2024,3,
+        return total",author_15,3
 "@answer(2500)
     def part_1(self) -> int:
         grid = parse_grid(self.input)
@@ -2184,7 +2188,7 @@ while True:
                 ):
                     total += 1
 
-        return total",author_15,2024,4,
+        return total",author_15,4
 "def adheres_to_rule(rule: list[int], update: list[int]) -> bool:
     assert len(rule) == 2
     l, r = rule
@@ -2196,7 +2200,7 @@ while True:
 
 
 def middle_element(l: list[int]) -> int:
-    return l[len(l) // 2]",author_15,2024,5,
+    return l[len(l) // 2]",author_15,5
 "def track_guard(grid: Grid) -> tuple[bool, set[GridPoint]]:
     OFFSETS = cycle([(-1, 0), (0, 1), (1, 0), (0, -1)])
     offset = next(OFFSETS)
@@ -2221,7 +2225,7 @@ def middle_element(l: list[int]) -> int:
             visited.add(to_add)
             loc = next_loc
 
-    return True, {l for l, _ in visited}",author_15,2024,6,
+    return True, {l for l, _ in visited}",author_15,6
 "def concat(a: int, b: int) -> int:
     return int(str(a) + str(b))
 
@@ -2239,7 +2243,7 @@ def process_line(line: str, include_concat=False) -> int:
     ):
         return target
 
-    return 0",author_15,2024,7,
+    return 0",author_15,7
 "class Solution(StrSplitSolution):
     _year = 2024
     _day = 8
@@ -2262,7 +2266,7 @@ def process_line(line: str, include_concat=False) -> int:
                     if p in grid:
                         antinode_locations.add(p)
 
-        return len(antinode_locations)",author_15,2024,8,
+        return len(antinode_locations)",author_15,8
 "@answer(6385338159127)
     def part_1(self) -> int:
         # we pad for unpacking reasons, so we need the input to end on a file
@@ -2286,7 +2290,7 @@ def process_line(line: str, include_concat=False) -> int:
 
         while True:
             while writer in disk:
-                writer += 1",author_15,2024,9,
+                writer += 1",author_15,9
 "def score_trailhead(grid: IntGrid, trailhead: GridPoint, *, skip_visited: bool) -> int:
     score = 0
     visited: set[GridPoint] = set()
@@ -2310,7 +2314,7 @@ def process_line(line: str, include_concat=False) -> int:
             n for n in neighbors(cur, num_directions=4) if grid.get(n) == val + 1
         )
 
-    return score",author_15,2024,10,
+    return score",author_15,10
 "import os
 os.chdir(os.path.dirname(__file__))
 
@@ -2330,7 +2334,7 @@ def part2():
 
 
 part1()
-part2()",author_16,2024,1,Adbel1
+part2()",author_16,1
 "def reader():
   return open(f""input.txt"", 'r').read().splitlines()
 
@@ -2345,7 +2349,7 @@ def part1():
 
 def part2():
   print(sum(check(n) or any(check(n[:i] + n[i + 1:]) for i in range(len(n)))
-        for n in [list(map(int, l.split())) for l in reader()]))",author_16,2024,2,
+        for n in [list(map(int, l.split())) for l in reader()]))",author_16,2
 "def reader():
   return open(f""input.txt"", 'r').read().splitlines()
 
@@ -2361,7 +2365,7 @@ def part2():
 
 
 part1()
-part2()",author_16,2024,3,
+part2()",author_16,3
 "def part1():
   f = reader()
   c = 0
@@ -2383,7 +2387,7 @@ part2()",author_16,2024,3,
 def part2():
   print((lambda f: len(re.findall(
     f'(?=(M.M.{{{len(f[0]) - 2}}}A.{{{len(f[0]) - 2}}}S.S|M.S.{{{len(f[0]) - 2}}}A.{{{len(f[0]) - 2}}}M.S|S.M.{{{len(f[0]) - 2}}}A.{{{len(f[0]) - 2}}}S.M|S.S.{{{len(f[0]) - 2}}}A.{{{len(f[0]) - 2}}}M.M))', ''.join(f))))(reader()))
-",author_16,2024,4,
+",author_16,4
 "def part2():
   f = list(map(lambda s: tuple(map(int, s.split('|'))),
            '\n'.join(reader()).split('\n\n')[0].split('\n')))
@@ -2402,7 +2406,7 @@ def part2():
 
 
 part1()
-part2()",author_16,2024,5,
+part2()",author_16,5
 "def part1():
   M = reader()
   p = (-1, -1)
@@ -2419,7 +2423,7 @@ part2()",author_16,2024,5,
       d = d[1], -d[0]
       pp = p[0] + d[0], p[1] + d[1]
     p = pp
-  print(len(S))",author_16,2024,6,
+  print(len(S))",author_16,6
 "import os
 os.chdir(os.path.dirname(__file__))
 
@@ -2444,7 +2448,7 @@ def part1():
       if x == r:
         t += r
         break
-  print(t)",author_16,2024,7,
+  print(t)",author_16,7
 "def part1():
   M = reader()
   n = {}
@@ -2468,7 +2472,7 @@ def part1():
           A.add(a1)
         if a2[0] in range(len(M)) and a2[1] in range(len(M[a2[0]])):
           A.add(a2)
-  print(len(A))",author_16,2024,8,
+  print(len(A))",author_16,8
 "def part2():
   n = list(map(int, reader()[0]))
   gaps = [SortedList() for _ in range(10)]
@@ -2493,7 +2497,7 @@ def part1():
     for l in gaps:
       if l.count(i - 1) > 0:
         l.remove(i - 1)
-  print(c)",author_16,2024,9,
+  print(c)",author_16,9
 "def part2():
   M = reader()
   D = [(1, 0), (-1, 0), (0, 1), (0, -1)]
@@ -2514,7 +2518,7 @@ def part1():
 
 
 part1()
-part2()",author_16,2024,10,
+part2()",author_16,10
 "def solve(input):
     leftArray = []
     rightArray = []
@@ -2532,7 +2536,7 @@ part2()",author_16,2024,10,
     for i in range(len(leftArray)):
         solution += abs(leftArray[i] - rightArray[i])
 
-    return solution",author_17,2024,1,dis-Is-Fine
+    return solution",author_17,1
 "def test(testSet):
     for i, [testInputFile, solution] in enumerate(testSet, 1):
         try:
@@ -2553,7 +2557,7 @@ if __test:
         print(msg)
 
     __runTime = datetime.datetime.fromtimestamp(time.time()-__startTime).strftime('%S.%fs')
-    print(f'Tests completed succesfully in: {__runTime}\n{'='*45}')",author_17,2024,2,
+    print(f'Tests completed succesfully in: {__runTime}\n{'='*45}')",author_17,2
 "try:
     input = open(__inputFile, 'r')
 except FileNotFoundError as e:
@@ -2564,7 +2568,7 @@ __startTime = time.time()
 solution = solve(input)
 
 __runTime = datetime.datetime.fromtimestamp(time.time()-__startTime).strftime('%S.%fs')
-print(f'Solution for the puzzle: {solution}\nElapsed time: {__runTime}')",author_17,2024,3,
+print(f'Solution for the puzzle: {solution}\nElapsed time: {__runTime}')",author_17,3
 "for y in range(len(grid)):
         for x in range(len(grid[y])):
             if grid[y][x] != 'X':
@@ -2588,7 +2592,7 @@ print(f'Solution for the puzzle: {solution}\nElapsed time: {__runTime}')",author
                     if(grid[searchY][searchX] != 'A'):
                         continue
                 except IndexError as e:
-                    continue",author_17,2024,4,
+                    continue",author_17,4
 "def test(testSet):
     for i, [testInputFile, solution] in enumerate(testSet, 1):
         try:
@@ -2600,7 +2604,7 @@ print(f'Solution for the puzzle: {solution}\nElapsed time: {__runTime}')",author
             raise RuntimeError(f'Test {i} failed!')
 
         else:
-            yield f'Test {i} passed'",author_17,2024,5,
+            yield f'Test {i} passed'",author_17,5
 "def solve(input):
     solution = 0
     
@@ -2620,7 +2624,7 @@ print(f'Solution for the puzzle: {solution}\nElapsed time: {__runTime}')",author
                 grid[y][x] = 'X'
                 solution += 1
     
-    guardInBounds = True",author_17,2024,6,
+    guardInBounds = True",author_17,6
 "def temp(possibilities, number):
     new_possibilities = []
     for p in possibilities:
@@ -2636,7 +2640,7 @@ def solve(input):
         result = int(numbers.pop(0))
         combinations = [int(numbers.pop(0))]
         while len(numbers) > 0:
-            combinations = temp(combinations, int(numbers.pop(0)))",author_17,2024,7,
+            combinations = temp(combinations, int(numbers.pop(0)))",author_17,7
 "for y, line in enumerate(input):
         for x, char in enumerate(line.strip()):
             if char != '.':
@@ -2661,7 +2665,7 @@ def solve(input):
                     antinodes.append(antinode)
     
     print(len(antinodes))
-    return len(antinodes)",author_17,2024,8,
+    return len(antinodes)",author_17,8
 "def solve(input):
     solution = 0
 
@@ -2677,7 +2681,7 @@ def solve(input):
                 x += 1
             else:
                 for a in range(int(char)):
-                    disk.append('.')",author_17,2024,9,
+                    disk.append('.')",author_17,9
 "def find(grid, pos, toFind):
     ret = []
     for dir in directions:
@@ -2695,7 +2699,7 @@ def countUnique(paths):
         if not any(end == path[lastIndex] for end in endings):
             endings.append(path[lastIndex])
     
-    return len(endings)",author_17,2024,10,
+    return len(endings)",author_17,10
 "from sys import stdin
 
 left = []
@@ -2713,7 +2717,7 @@ sum_of_distances = 0
 for i in range(0, len(left)):
     sum_of_distances += abs(left[i] - right[i])
     
-print(sum_of_distances)",author_18,2024,1,GNUSheep
+print(sum_of_distances)",author_18,1
 "safe_reports_count = 0
 for line in stdin:
     line_int = [int(n) for n in line.split()]
@@ -2734,7 +2738,7 @@ for line in stdin:
         
         if is_desc and line_int[i] <= line_int[i + 1]:
             is_unsafe = True
-            break",author_18,2024,2,
+            break",author_18,2
 "for line in stdin:
     mul_extracted = re.findall(""mul\\(\\d{1,3},\\d{1,3}\\)"", line)
 
@@ -2742,7 +2746,7 @@ for line in stdin:
         n1, n2 = instr[4:len(instr) - 1].split("","")
 
         result += int(n1) * int(n2)
-print(result)",author_18,2024,3,
+print(result)",author_18,3
 "def searchWord(r, c):
     word = ""XMAS""
 
@@ -2757,7 +2761,7 @@ print(result)",author_18,2024,3,
         i_word = 1
 
         cR, cC = r + r_dir, c + c_dir
-",author_18,2024,4,
+",author_18,4
 "result = 0
 for page in pages_to_produce:
     n = len(page)
@@ -2772,7 +2776,7 @@ for page in pages_to_produce:
                 swapped = True
             elif not (ordered_page[j] in ord_rules[ordered_page[j+1]]):
                 ordered_page[j], ordered_page[j+1] = ordered_page[j+1], ordered_page[j]
-                swapped = True",author_18,2024,5,
+                swapped = True",author_18,5
 "grid = []
 startpos = ()
 for line in stdin:
@@ -2796,7 +2800,7 @@ while True:
 
         k += 1
         if k == 4:
-            k = 0",author_18,2024,6,
+            k = 0",author_18,6
 "def backtrack(equations, test_value, current_value, i):
     if i == len(equations):
         return current_value == test_value
@@ -2807,7 +2811,7 @@ while True:
     if backtrack(equations, test_value, current_value * equations[i], i+1):
         return True
 
-    return False",author_18,2024,7,
+    return False",author_18,7
 "from sys import stdin
 
 frequency = {}
@@ -2828,7 +2832,7 @@ for line in stdin:
         col.append(line[i])
     grid.append(col)
 
-    max_y += 1",author_18,2024,8,
+    max_y += 1",author_18,8
 "while b != e:
     if disk_map[b] == ""."":
         while disk_map[e] == ""."":
@@ -2846,7 +2850,7 @@ for i in range(0, len(disk_map)):
         continue
 
     checksum += int(disk_map[i]) * i
-print(checksum)",author_18,2024,9,
+print(checksum)",author_18,9
 "from sys import stdin
 
 map = []
@@ -2865,10 +2869,10 @@ for pos in start_pos:
     moves = [(pos[0], pos[1])]
     while len(moves) != 0:
         move = moves.pop()
-",author_18,2024,10,
+",author_18,10
 "arr = [list(map(int, i.split())) for i in sys.stdin.read().splitlines()]
 a, b = zip(*arr)
-print(sum(abs(x - y) for x, y in zip(sorted(a), sorted(b))))",author_19,2024,1,Grecil
+print(sum(abs(x - y) for x, y in zip(sorted(a), sorted(b))))",author_19,1
 "arr = [list(map(int, i.split())) for i in sys.stdin.read().splitlines()]
 print(
     sum(
@@ -2876,10 +2880,10 @@ print(
         or all(-4 < i[j] - i[j + 1] < 0 for j in range(len(i) - 1))
         for i in arr
     )
-)",author_19,2024,2,
+)",author_19,2
 "arr = sys.stdin.read()
 pattern = r""mul\((\d+),(\d+)\)""
-print(sum(int(x) * int(y) for x, y in re.findall(pattern, arr)))",author_19,2024,3,
+print(sum(int(x) * int(y) for x, y in re.findall(pattern, arr)))",author_19,3
 "import sys
 
 arr = sys.stdin.read().splitlines()
@@ -2896,7 +2900,7 @@ for i in range(n):
                 ans += 1
             if arr[i + 3][j] + arr[i + 2][j + 1] + arr[i + 1][j + 2] + arr[i][j + 3] in (""XMAS"", ""SAMX""):
                 ans += 1
-print(ans)",author_19,2024,4,
+print(ans)",author_19,4
 "import sys
 
 rules, updates = sys.stdin.read().split(""\n\n"")
@@ -2907,7 +2911,7 @@ print(
         int(i[len(i) // 2]) if not any(a in i and b in i and i.index(a) > i.index(b) for a, b in rules) else 0
         for i in updates
     )
-)",author_19,2024,5,
+)",author_19,5
 "vis = set()
 dx, dy = -1, 0
 while True:
@@ -2919,7 +2923,7 @@ while True:
     else:
         x += dx
         y += dy
-print(len(vis))",author_19,2024,6,
+print(len(vis))",author_19,6
 "ops = [list(product(""+*"", repeat=i)) for i in range(12)]
 arr = sys.stdin.read().splitlines()
 ans = 0
@@ -2939,7 +2943,7 @@ for i in arr:
                 break
         if curr == target:
             ans += target
-            break",author_19,2024,7,
+            break",author_19,7
 "an = set()
 for i in d:
     temp = d[i]
@@ -2953,7 +2957,7 @@ for i in d:
                 an.add(p1)
             if -1 < p2[0] < n and -1 < p2[1] < m:
                 an.add(p2)
-print(len(an))",author_19,2024,8,
+print(len(an))",author_19,8
 "import sys
 
 s = sys.stdin.read()
@@ -2972,7 +2976,7 @@ while i < j:
         j -= 1
     if arr[i] == ""."" and arr[j] != ""."":
         arr[i], arr[j] = arr[j], arr[i]
-print(sum(i * j if j != ""."" else 0 for i, j in enumerate(arr)))",author_19,2024,9,
+print(sum(i * j if j != ""."" else 0 for i, j in enumerate(arr)))",author_19,9
 "def bfs(x, y):
     ans, q = set(), [(x, y)]
     while q:
@@ -2983,7 +2987,7 @@ print(sum(i * j if j != ""."" else 0 for i, j in enumerate(arr)))",author_19,202
                     ans.add((x + dx, y + dy))
                 else:
                     q.append((x + dx, y + dy))
-    return len(ans)",author_19,2024,10,
+    return len(ans)",author_19,10
 "with open(""input.txt"") as f:
     l1 = []
     l2 = []
@@ -2994,7 +2998,7 @@ print(sum(i * j if j != ""."" else 0 for i, j in enumerate(arr)))",author_19,202
         l2.append(int(b))
 
     print(sum([abs(z[0] - z[1]) for z in zip(sorted(l1), sorted(l2))]))
-    print(sum([z[0] * z[1] for z in zip(l1, [l2.count(c) for c in l1])]))",author_20,2024,1,Kokopak
+    print(sum([z[0] * z[1] for z in zip(l1, [l2.count(c) for c in l1])]))",author_20,1
 "def check_levels(levels):
     return all(
         [
@@ -3008,7 +3012,7 @@ print(sum(i * j if j != ""."" else 0 for i, j in enumerate(arr)))",author_19,202
             and 0 < abs(z[0] - z[1]) <= 3
             for z in zip(levels[:-1], levels[1:])
         ]
-    )",author_20,2024,2,
+    )",author_20,2
 "with open(""input.txt"") as f:
     input = f.read().strip()
 
@@ -3029,7 +3033,8 @@ print(sum(i * j if j != ""."" else 0 for i, j in enumerate(arr)))",author_19,202
         elif ""don't"" in r.group(0):
             do = False
         else:
-            do = True",author_20,2024,3,
+            do = True
+",author_20,3
 "def check_p1(r, c, dr, dc, word):
     return (
         letters.get((r, c)) == word[0]
@@ -3042,7 +3047,7 @@ print(sum(i * j if j != ""."" else 0 for i, j in enumerate(arr)))",author_19,202
 counter = 0
 counter2 = 0
 
-patterns = {""X"": [""X"", ""M"", ""A"", ""S""], ""S"": [""S"", ""A"", ""M"", ""X""]}",author_20,2024,4,
+patterns = {""X"": [""X"", ""M"", ""A"", ""S""], ""S"": [""S"", ""A"", ""M"", ""X""]}",author_20,4
 "def cmp(a, b):
     if (a, b) in rules:
         return -1
@@ -3063,7 +3068,7 @@ for u in updates:
         s += int(u[len(u) // 2])
 
 print(s)
-print(s2)",author_20,2024,5,
+print(s2)",author_20,5
 "def walk(grid, current_position, facing):
     visited = set()
     loop = True
@@ -3085,7 +3090,7 @@ print(s2)",author_20,2024,5,
         else:
             current_position = (current_position[0] + dr, current_position[1] + dc)
 
-    return visited, loop",author_20,2024,6,
+    return visited, loop",author_20,6
 "def calc_p2(acc, numbers, result, part_2=False):
     if acc > result:
         return False
@@ -3104,7 +3109,7 @@ print(s2)",author_20,2024,5,
 
 
 s = 0
-s2 = 0",author_20,2024,7,
+s2 = 0",author_20,7
 "for p in pairs:
     (dr, dc) = (p[0][0] - p[1][0], p[0][1] - p[1][1])
 
@@ -3114,7 +3119,7 @@ s2 = 0",author_20,2024,7,
             if i == 0:
                 antinodes_p1.add(tuple(new))
 
-            antinodes_p2.add(tuple(new))",author_20,2024,8,
+            antinodes_p2.add(tuple(new))",author_20,8
 "for a in availables:
         if availables_size[a] >= len(full_map[end]):
             full_map[a].extend(full_map[end])
@@ -3127,7 +3132,7 @@ s2 = 0",author_20,2024,7,
 
             break
     else:
-        end -= 1",author_20,2024,9,
+        end -= 1",author_20,9
 "def walk(coord, visited):
     if grid[coord] == 9:
         visited.add(coord)
@@ -3138,7 +3143,7 @@ s2 = 0",author_20,2024,7,
         if new_coord in grid and grid[new_coord] == grid[coord] + 1:
             walk(new_coord, visited)
 
-    return len(visited)",author_20,2024,10,
+    return len(visited)",author_20,10
 "class Year2024Day1Part1Solution(Solution):
 
     @classmethod
@@ -3157,7 +3162,7 @@ s2 = 0",author_20,2024,7,
             right.append(y)
 
         return {'left': left, 'right': right}
-",author_21,2024,1,Kyrylo-Ktl
+",author_21,1
 "@classmethod
     @final
     def is_safe(cls, report: list[int]) -> bool:
@@ -3175,7 +3180,7 @@ s2 = 0",author_20,2024,7,
             if x < y:
                 is_decreasing = False
 
-        return is_decreasing or is_increasing",author_21,2024,2,
+        return is_decreasing or is_increasing",author_21,2
 "class Year2024Day3Part1Solution(Solution):
 
     @classmethod
@@ -3199,7 +3204,7 @@ s2 = 0",author_20,2024,7,
         for x, y in re.findall(r'mul\((\d+),(\d+)\)', memory):
             total_sum += int(x) * int(y)
 
-        return total_sum",author_21,2024,3,
+        return total_sum",author_21,3
 "@classmethod
     @override
     def solve(cls, matrix: list[str]) -> int:
@@ -3229,7 +3234,7 @@ s2 = 0",author_20,2024,7,
             matches += diagonal.count(cls.STRAIGHT_TARGET)
             matches += diagonal.count(cls.REVERSED_TARGET)
 
-        return matches",author_21,2024,4,
+        return matches",author_21,4
 "@classmethod
     @override
     def solve(cls, rules: dict[int, set], updates: list[list[int]]) -> int:
@@ -3251,7 +3256,7 @@ s2 = 0",author_20,2024,7,
 
 
 if __name__ == '__main__':
-    print(Year2024Day5Part1Solution.main())",author_21,2024,5,
+    print(Year2024Day5Part1Solution.main())",author_21,5
 "@dataclass
 class Guard:
     direction: Direction
@@ -3267,7 +3272,7 @@ class Guard:
         return Guard(
             position=self.position,
             direction=self.direction.turn_right(),
-        )",author_21,2024,6,
+        )",author_21,6
 "class Year2024Day7Part1Solution(Solution):
 
     @classmethod
@@ -3296,7 +3301,7 @@ class Guard:
               m - maximum size of equation
               k - number of possible operations
         """"""
-        possible_sum = 0",author_21,2024,7,
+        possible_sum = 0",author_21,7
 "@staticmethod
     def get_antinode_positions(start: Position, end: Position, max_x: int, max_y) -> Iterable[Position]:
         x1, y1 = start
@@ -3318,7 +3323,7 @@ class Guard:
         dy2 = y2 - dy
 
         if 0 <= dx2 < max_x and 0 <= dy2 < max_y:
-            yield dx2, dy2",author_21,2024,8,
+            yield dx2, dy2",author_21,8
 "class Year2024Day9Part1Solution(Solution):
 
     @classmethod
@@ -3341,7 +3346,7 @@ class Guard:
         Where n - disk map length,
               m - maximum block size (9 in this case)
         """"""
-        memory = []",author_21,2024,9,
+        memory = []",author_21,9
 "@classmethod
     @override
     def solve(cls, matrix: list[list[int]]) -> int:
@@ -3355,7 +3360,7 @@ class Guard:
         """"""
         n = len(matrix)
         m = len(matrix[0])
-",author_21,2024,10,
+",author_21,10
 "def distance_between_lists(tuples):
     # sort the numbers
     first_parts = sorted([t[0] for t in tuples])
@@ -3370,7 +3375,7 @@ def similarity_score(tuples):
 
     # sum for everything in left part the number * count
     score = sum(num * rights_counts[num] for num in [t[1] for t in tuples])
-    return score",author_22,2024,1,Lkeurentjes
+    return score",author_22,1
 "def count_reports(reports, removal=False):
     safe_counter = 0
     for report in reports:
@@ -3387,7 +3392,7 @@ with open('2024-02-Red-Nosed-Reports.txt') as f:
     lines = f.read().splitlines()
     int_lines = [[int(item) for item in line.split()] for line in lines]
     print(""Part 1, The number of safe reports are:"", count_reports(int_lines))
-    print(""Part 2, The number of safe reports are:"", count_reports(int_lines, True))",author_22,2024,2,
+    print(""Part 2, The number of safe reports are:"", count_reports(int_lines, True))",author_22,2
 "def extract_multiplications(memory):
     # regex pattern for multiplications
     pattern = r""mul\(\s*(-?\d+)\s*,\s*(-?\d+)\s*\)""
@@ -3415,7 +3420,7 @@ def extract_do_dont_mul(memory):
         if do_match:
             multiply = True
             pos += do_match.end()
-            continue",author_22,2024,3,
+            continue",author_22,3
 "def count_xmas(grid, word=""XMAS""):
     count = 0
 
@@ -3438,7 +3443,7 @@ def extract_do_dont_mul(memory):
                 if found_xmas(x, y, dir, grid, word):
                     count += 1
 
-    return count",author_22,2024,4,
+    return count",author_22,4
 "with open('2024-05-Print_Queue.txt') as f:
     lines = f.read().splitlines()
     rules = [tuple(map(int, line.split('|'))) for line in lines[:lines.index('')]]
@@ -3452,7 +3457,7 @@ def extract_do_dont_mul(memory):
             result_incorrect += find_middle_page(reorder_update(update, rules))
 
     print(""Part 1, the result of the middle indexes"",result)
-    print(""Part 2, the result of the middle indexes"",result_incorrect)",author_22,2024,5,
+    print(""Part 2, the result of the middle indexes"",result_incorrect)",author_22,5
 "class Grid:
     def __init__(self, lines):
         self.height = len(lines)
@@ -3474,7 +3479,7 @@ def extract_do_dont_mul(memory):
 
         self.visited = set()
 
-        self.check = 0",author_22,2024,6,
+        self.check = 0",author_22,6
 "@lru_cache
 def recursive_evaluator(result, current, numbers, part1=True):
     # check result
@@ -3490,7 +3495,7 @@ def recursive_evaluator(result, current, numbers, part1=True):
 
     return (recursive_evaluator(result, current + numbers[0], numbers[1:], part1) or  # summation
             recursive_evaluator(result, current * numbers[0], numbers[1:], part1) or  # multiplication
-            (not part1 and recursive_evaluator(result, current * (10 ** digits) + numbers[0], numbers[1:], part1)))  # concatenation",author_22,2024,7,
+            (not part1 and recursive_evaluator(result, current * (10 ** digits) + numbers[0], numbers[1:], part1)))  # concatenation",author_22,7
 "def find_antinodes(self, part2=False):
         """"""Find and count unique antinode positions based on antenna placement.""""""
         max_steps = max(self.width, self.height) if part2 else 2
@@ -3516,7 +3521,7 @@ if __name__ == ""__main__"":
 
     # Output results for both parts
     print(""Part 1, number of unique antinodes:"", antennas.find_antinodes())
-    print(""Part 2, number of unique antinodes:"", antennas.find_antinodes(part2=True))",author_22,2024,8,
+    print(""Part 2, number of unique antinodes:"", antennas.find_antinodes(part2=True))",author_22,8
 "def clean_up_disk_whole_files(tupledisk):
     set_used = set()
 
@@ -3542,7 +3547,7 @@ if __name__ == ""__main__"":
                         tupledisk.insert(i + 1, (""free"", remaining))
                         break
 
-    return tupledisk",author_22,2024,9,
+    return tupledisk",author_22,9
 "def find_trailheads(self):
         scores = []
 
@@ -3570,7 +3575,7 @@ if __name__ == ""__main__"":
             # add numbers 9 that are reachable
             scores.append(len(reachable_finish))
 
-        return scores",author_22,2024,10,
+        return scores",author_22,10
 "def _parse(data: str) -> tuple[list[int], list[int]]:
     left, right = [], []
     for line in data.splitlines():
@@ -3589,7 +3594,7 @@ def part1(data: str) -> int:
     11
     """"""
     left, right = _parse(data)
-    return sum(abs(x - y) for (x, y) in zip(sorted(left), sorted(right)))",author_23,2024,1,ephemient
+    return sum(abs(x - y) for (x, y) in zip(sorted(left), sorted(right)))",author_23,1
 "def _issafe1(report: list[int]) -> bool:
     decreasing, increasing = False, False
     for x, y in zip(report, report[1:]):
@@ -3606,7 +3611,7 @@ def part1(data: str) -> int:
             break
     else:
         return True
-    return False",author_23,2024,2,
+    return False",author_23,2
 "def part1(data: str) -> int:
     """"""
     >>> part1(SAMPLE_INPUT_1)
@@ -3626,7 +3631,7 @@ def part2(data: str) -> int:
     )
 
 
-parts = (part1, part2)",author_23,2024,3,
+parts = (part1, part2)",author_23,3
 "def part1(data: str) -> int:
     """"""
     >>> part1(SAMPLE_INPUT)
@@ -3644,7 +3649,7 @@ parts = (part1, part2)",author_23,2024,3,
         for x in range(len(line))
         for dx in range(-1, 2)
         for dy in range(-1, 2)
-    )",author_23,2024,4,
+    )",author_23,4
 "def _parse(data: str) -> tuple[set[tuple[int, int]], list[list[int]]]:
     (deps, updates) = data.split(""\n\n"")
     deps = {
@@ -3668,7 +3673,7 @@ def part1(data: str) -> int:
         pages[len(pages) // 2]
         for pages in updates
         if all((y, x) not in deps for i, x in enumerate(pages) for y in pages[i + 1 :])
-    )",author_23,2024,5,
+    )",author_23,5
 "def part2(data: str, concurrency: int = None) -> int:
     """"""
     >>> part2(SAMPLE_INPUT)
@@ -3682,7 +3687,7 @@ def part1(data: str) -> int:
     )
 
 
-parts = (part1, part2)",author_23,2024,6,
+parts = (part1, part2)",author_23,6
 "def _solve(data: str, op: Callable[[int, int], Iterable[int]]) -> int:
     total = 0
     for line in filter(None, data.splitlines()):
@@ -3699,7 +3704,7 @@ parts = (part1, part2)",author_23,2024,6,
 
         if ok(lhs, rhs):
             total += lhs
-    return total",author_23,2024,7,
+    return total",author_23,7
 "def part1(data: str) -> int:
     """"""
     >>> part1(SAMPLE_INPUT)
@@ -3716,7 +3721,7 @@ def part2(data: str) -> int:
     return _solve(data, _Count())
 
 
-parts = (part1, part2)",author_23,2024,8,
+parts = (part1, part2)",author_23,8
 "def part1(data: str) -> int:
     """"""
     >>> part1(SAMPLE_INPUT)
@@ -3740,7 +3745,7 @@ parts = (part1, part2)",author_23,2024,8,
                 break
             end = j
         offset += free
-    return total",author_23,2024,9,
+    return total",author_23,9
 "def _adj(point: tuple[int, int]) -> list[tuple[int, int]]:
     y, x = point
     return [(y - 1, x), (y, x - 1), (y, x + 1), (y + 1, x)]
@@ -3759,13 +3764,13 @@ def _bfs[T](
                 if point in points:
                     tmp[point] = plus(value, tmp[point]) if point in tmp else value
         acc = tmp
-    return acc",author_23,2024,10,
+    return acc",author_23,10
 "for line in lines:
     l1Loc, l2Loc = map(int, line.split())
     l1.append(l1Loc)
     l2.append(l2Loc)
 summ = sum(abs(i-j) for i,j in zip(sorted(l1), sorted(l2)))
-print(summ)",author_24,2024,1,Samarth-Pai
+print(summ)",author_24,1
 "for line in lines:
     intLine = list(map(int, line.split()))
     l1, l2 = intLine, intLine[1:]
@@ -3776,7 +3781,7 @@ print(summ)",author_24,2024,1,Samarth-Pai
     else:
         safe+=1
         
-print(safe)",author_24,2024,2,
+print(safe)",author_24,2
 "from operator import mul
 import re
 with open(""input.txt"") as f:
@@ -3784,7 +3789,7 @@ with open(""input.txt"") as f:
     
 matches = re.finditer(r""mul\((\d{1,3}),(\d{1,3})\)"", line)
 summ = sum(mul(*map(int, m.groups())) for m in matches)
-print(summ)",author_24,2024,3,
+print(summ)",author_24,3
 "def matches(x, y):
     combs = 0
 
@@ -3812,7 +3817,7 @@ print(summ)",author_24,2024,3,
     # Check north west
     if x>2 and y>2 and """".join(lines[x-i][y-i] for i in range(4)) == ""XMAS"":
         combs+=1
-    return combs",author_24,2024,4,
+    return combs",author_24,4
 "from collections import defaultdict
 with open(""input.txt"") as f:
     lines = f.read().splitlines()
@@ -3831,7 +3836,7 @@ for line in lines:
 pageDict = defaultdict(list)
 for page in firstSection:
     x, y = page.split(""|"")
-    pageDict[x].append(y)",author_24,2024,5,
+    pageDict[x].append(y)",author_24,5
 "places = set()
 places.add((x,y))
 while not onCorner():
@@ -3857,7 +3862,7 @@ while not onCorner():
         y-=1
     places.add((x, y))
     
-print(len(places))",author_24,2024,6,
+print(len(places))",author_24,6
 "from itertools import product
 with open(""input.txt"") as f:
     lines = f.read().splitlines()
@@ -3875,7 +3880,7 @@ def isPossible(target: int, nums: list[int]):
                 total+=k
             if total==target:
                 return True
-    return False",author_24,2024,7,
+    return False",author_24,7
 "for i in range(m):
     for j in range(n):
         if lines[i][j] not in [""#"", "".""]:
@@ -3891,7 +3896,7 @@ for ant, coords in antennas.items():
                 lineList[nextCoord[0]][nextCoord[1]] = ""#""
 
 hashtags = sum(map(lambda x:x.count(""#""), lineList))
-print(hashtags)",author_24,2024,8,
+print(hashtags)",author_24,8
 "while not disk[j].isdigit():
     j-=1
     
@@ -3910,7 +3915,7 @@ for en, num in enumerate(disk):
         break
     summ+=int(num)*en
     
-print(summ)",author_24,2024,9,
+print(summ)",author_24,9
 "def findScore(c, x, y, coords):
     if c == ""9"":
         coords.add((x, y))
@@ -3930,7 +3935,7 @@ print(summ)",author_24,2024,9,
     
     # check left
     if y>0 and nxt == lines[x][y-1]:
-        findScore(lines[x][y-1], x, y-1, coords)",author_24,2024,10,
+        findScore(lines[x][y-1], x, y-1, coords)",author_24,10
 "total = 0
 left = []
 right = []
@@ -3953,7 +3958,7 @@ total2 = 0
 for i in range(len(left)):
     total2+= left[i]*right.count(left[i])
 
-print(total2)",author_25,2024,1,SpiderScripts
+print(total2)",author_25,1
 "def checkone(a):
     b = sorted(a)
     c = sorted(a,reverse=True)
@@ -3979,7 +3984,7 @@ def checkrem(a):
         if checkone(a[:i]+a[i+1:]):
             safe = True
             break
-    return safe",author_25,2024,2,
+    return safe",author_25,2
 "for i in result:
     if i == ""do()"":
         do = True
@@ -3993,7 +3998,7 @@ def checkrem(a):
             total2 += val
 
 print(total1)
-print(total2)",author_25,2024,3,
+print(total2)",author_25,3
 "# left/right
 for i in range(height):
     for j in range(width-3):
@@ -4013,7 +4018,7 @@ for i in range(height-3):
     for j in range(width-3):
         this = data[i][j] + data[i+1][j+1] + data[i+2][j+2] + data[i+3][j+3]
         if this == ""XMAS"" or this == ""SAMX"":
-            total1 += 1",author_25,2024,4,
+            total1 += 1",author_25,4
 "def makesafe(pages):
     fixed = []
     while pages != []:
@@ -4042,7 +4047,7 @@ for i in data:
         if checksafe(pages):
             total += int(pages[len(pages)//2])
         else:
-            total2 += makesafe(pages)",author_25,2024,5,
+            total2 += makesafe(pages)",author_25,5
 "def countpath(grid,direc,pos):
     total = 0
 
@@ -4064,7 +4069,7 @@ for i in data:
                 # found a loop
                 return False
             grid[pos[0]][pos[1]] += direc
-            pos = newpos.copy()",author_25,2024,6,
+            pos = newpos.copy()",author_25,6
 "for i in range(len(data)):
     if i % 10 == 0:
         print(i,time.time()-start)
@@ -4086,7 +4091,7 @@ for i in data:
             break
 
 print(total)
-print(time.time() - start)",author_25,2024,7,
+print(time.time() - start)",author_25,7
 "ant = {}
 hotspot = set()
 
@@ -4101,7 +4106,7 @@ for i in range(h):
             if this in ant:
                 ant[this] += [(i,j)]
             else:
-                ant[this] = [(i,j)]",author_25,2024,8,
+                ant[this] = [(i,j)]",author_25,8
 "s = 0
 e = len(files)-1
 # compress memory
@@ -4121,7 +4126,7 @@ for i in spaces:
         disk += [s]*files[s]
         break
 
-print(""P1: Data compressed"")",author_25,2024,9,
+print(""P1: Data compressed"")",author_25,9
 "def path(s):
     q = [s]
     d = [0]
@@ -4147,4 +4152,4 @@ print(""P1: Data compressed"")",author_25,2024,9,
             if y > 0:
                 if data[x][y-1] == n:
                     q.append([x,y-1])
-    return d",author_25,2024,10,
+    return d",author_25,10
